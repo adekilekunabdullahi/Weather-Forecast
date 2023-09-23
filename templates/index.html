@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>{{ city }}</h1>
+<h2>
+    {{ temp }} &#8451
+</h2>
+<p>
+    <button onclick="showlocation()"> Look for other cities? </button>
+    <button><a href="{% url 'show_here' %}">Home</a></button>
+</p>
+<div id="dont_show" style="display: none">
+    <form action="{% url 'somewhere' %}" method="get">
+        <label>
+            <input type="text" placeholder="Enter city name" name="city_name">
+        </label>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<script>
+    let show = document.getElementById("dont_show")
+    {#let city = document.getElementById("other_city")#}
+    function showlocation() {
+        show.style.display = "initial"
+    }
+</script>
+</body>
+</html>
